@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PaddleController : MonoBehaviour {
-	public float speed = 150;
-
     private new Rigidbody2D rigidbody2D;
 
     void Awake()
@@ -14,8 +12,7 @@ public class PaddleController : MonoBehaviour {
     
     void FixedUpdate()
 	{
-		float direction = Input.GetAxisRaw("Horizontal");
-
-        rigidbody2D.velocity = Vector2.right * direction * speed * Time.fixedDeltaTime;
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        rigidbody2D.position = new Vector2(mouse.x, rigidbody2D.position.y);
     }
 }
