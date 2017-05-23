@@ -27,6 +27,12 @@ public class BallController : MonoBehaviour {
             Vector2 direction = new Vector2(x, 1).normalized;
             rigidbody2D.velocity = direction * speed;
         }
+
+        iTween.PunchScale(gameObject, Vector3.one, 0.5f);
+		foreach (BlockController block in GameObject.FindObjectsOfType<BlockController>())
+        {
+            block.Shake();
+        }
     }
 
 	void FixedUpdate()
@@ -34,7 +40,7 @@ public class BallController : MonoBehaviour {
 		if (!launched)
 		{
             rigidbody2D.velocity = Vector2.zero;
-            rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.25f);
+            rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.3f);
 			if (Input.GetButton("Fire1"))
 			{
                 rigidbody2D.velocity = Vector2.up * speed;
