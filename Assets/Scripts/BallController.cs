@@ -6,23 +6,34 @@ public class BallController : MonoBehaviour {
     public float speed = 10;
 
     private new Rigidbody2D rigidbody2D;
+    private Rigidbody2D paddle;
+    private bool launched = false;
 
 	void Awake()
 	{
         rigidbody2D = GetComponent<Rigidbody2D>();
+        paddle = GameObject.Find("Paddle").GetComponentInChildren<Rigidbody2D>();
     }
 
-    void Start()
-	{
-        rigidbody2D.velocity = Vector2.up * speed;
-    }
-    
     void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Player")
+        if (launched && other.gameObject.tag == "Player")
         {
 			float x = (transform.position.x - other.transform.position.x) / other.collider.bounds.size.x;
             Vector2 direction = new Vector2(x, 1).normalized;
             rigidbody2D.velocity = direction * speed;
         }
     }
+
+	void FixedUpdate()
+	{
+		if (!launched)
+		{
+            rigidbody2D.position = new Vector2(paddle.position.x, rigidbody2D.position.y);
+			if (Input.GetButton("Fire1"))
+			{
+                rigidbody2D.velocity = Vector2.up * speed;
+                launched = true;
+            }
+		}
+	}
 }
