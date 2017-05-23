@@ -13,6 +13,8 @@ public class PaddleController : MonoBehaviour {
     void FixedUpdate()
 	{
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float squish = 1 + Mathf.Abs(mouse.x - transform.position.x);
+        transform.localScale = new Vector3(squish * 2f, 1.25f / squish, 1);
         rigidbody2D.position = new Vector2(mouse.x, rigidbody2D.position.y);
     }
 }

@@ -40,7 +40,7 @@ public class BallController : MonoBehaviour {
 		if (!launched)
 		{
             rigidbody2D.velocity = Vector2.zero;
-            rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.3f);
+            rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.35f);
 			if (Input.GetButton("Fire1"))
 			{
                 rigidbody2D.velocity = Vector2.up * speed;
