@@ -9,6 +9,11 @@ public class BallController : MonoBehaviour {
     private Rigidbody2D paddle;
     private bool launched = false;
 
+	public void Reset()
+	{
+        launched = false;
+    }
+
 	void Awake()
 	{
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -28,7 +33,8 @@ public class BallController : MonoBehaviour {
 	{
 		if (!launched)
 		{
-            rigidbody2D.position = new Vector2(paddle.position.x, rigidbody2D.position.y);
+            rigidbody2D.velocity = Vector2.zero;
+            rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.25f);
 			if (Input.GetButton("Fire1"))
 			{
                 rigidbody2D.velocity = Vector2.up * speed;
