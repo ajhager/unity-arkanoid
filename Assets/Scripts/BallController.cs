@@ -9,15 +9,28 @@ public class BallController : MonoBehaviour {
     private Rigidbody2D paddle;
     private bool launched = false;
 
-	public void Reset()
-	{
-        launched = false;
-    }
-
 	void Awake()
 	{
         rigidbody2D = GetComponent<Rigidbody2D>();
         paddle = GameObject.Find("Paddle").GetComponentInChildren<Rigidbody2D>();
+    }
+
+	void Start()
+	{
+        Reset();
+    }
+
+	public void Reset()
+	{
+        launched = false;
+        GetComponent<TrailRenderer>().enabled = false;
+    }
+
+	public void Launch()
+	{
+		rigidbody2D.velocity = Vector2.up * speed;
+        launched = true;
+        GetComponent<TrailRenderer>().enabled = true;
     }
 
     void OnCollisionEnter2D(Collision2D other) {
@@ -43,8 +56,7 @@ public class BallController : MonoBehaviour {
             rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.35f);
 			if (Input.GetButton("Fire1"))
 			{
-                rigidbody2D.velocity = Vector2.up * speed;
-                launched = true;
+                Launch();
             }
 		}
 	}
