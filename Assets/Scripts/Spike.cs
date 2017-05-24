@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeController : MonoBehaviour
+public class Spike : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject.Find("Ball").GetComponent<BallController>().Reset();
+        Object.FindObjectOfType<Ball>().Reset();
     }
 }

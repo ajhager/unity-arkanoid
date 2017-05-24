@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallController : MonoBehaviour {
+public class Ball : MonoBehaviour {
     public float speed = 10;
 
-    private new Rigidbody2D rigidbody2D;
-    private Rigidbody2D paddle;
-    private bool launched = false;
+    private Rigidbody2D body;
+    private Rigidbody2D paddleBody;
+    private bool launched;
 
 	void Awake()
 	{
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        paddle = GameObject.Find("Paddle").GetComponentInChildren<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
+        paddleBody = GameObject.Find("Paddle").GetComponent<Rigidbody2D>();
     }
 
 	void Start()
@@ -28,32 +28,29 @@ public class BallController : MonoBehaviour {
 
 	public void Launch()
 	{
-		rigidbody2D.velocity = Vector2.up * speed;
+		body.velocity = Vector2.up * speed;
         launched = true;
         GetComponent<TrailRenderer>().enabled = true;
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (launched && other.gameObject.tag == "Player")
+        if (launched && other.gameObject.name == "Paddle")
         {
 			float x = (transform.position.x - other.transform.position.x) / other.collider.bounds.size.x;
             Vector2 direction = new Vector2(x, 1).normalized;
-            rigidbody2D.velocity = direction * speed;
+            body.velocity = direction * speed;
         }
 
         iTween.PunchScale(gameObject, Vector3.one, 0.5f);
-		foreach (BlockController block in GameObject.FindObjectsOfType<BlockController>())
-        {
-            block.Shake();
-        }
+        Block.ShakeAll();
     }
 
 	void FixedUpdate()
 	{
 		if (!launched)
 		{
-            rigidbody2D.velocity = Vector2.zero;
-            rigidbody2D.position = new Vector2(paddle.position.x, paddle.position.y + 0.35f);
+            body.velocity = Vector2.zero;
+            body.position = new Vector2(paddleBody.position.x, paddleBody.position.y + 0.35f);
 			if (Input.GetButton("Fire1"))
 			{
                 Launch();

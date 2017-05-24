@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour {
     public string[] levels;
     public int currentLevel;
 
-    void Awake()
+    void Start()
 	{
-        InitLevel();
-    }
-	
-	void InitLevel()
-	{
-        SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(levels[currentLevel], LoadSceneMode.Additive);
     }
 }

@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockController : MonoBehaviour
+public class Block : MonoBehaviour
 {
     Vector3 startingPosition;
 
-	void Awake()
-	{
+    void Awake()
+    {
         startingPosition = transform.position;
     }
 
     void Start()
-	{
+    {
+        DropFromSky();
+    }
+
+   void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(gameObject);
+    }
+
+    void DropFromSky()
+    {
         iTween.MoveFrom(gameObject, iTween.Hash(
             "y", 7,
             "time", Random.Range(0.5f, 1f),
@@ -20,15 +30,18 @@ public class BlockController : MonoBehaviour
         ));
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Destroy(gameObject);
-    }
-
-	public void Shake()
+    public void Shake()
     {
         iTween.Stop(gameObject);
         transform.position = startingPosition;
         iTween.ShakePosition(gameObject, Vector3.one * Random.Range(-0.2f, 0.2f), 0.2f);
+    }
+
+    public static void ShakeAll()
+    {
+        foreach (Block block in GameObject.FindObjectsOfType<Block>())
+        {
+            block.Shake();
+        }
     }
 }
