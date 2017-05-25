@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    Vector3 startingPosition;
+    private static int blockCount;
+    private Vector3 startingPosition;
 
     void Awake()
     {
         startingPosition = transform.position;
+        Block.blockCount += 1;
     }
 
     void Start()
@@ -19,6 +21,11 @@ public class Block : MonoBehaviour
    void OnCollisionEnter2D(Collision2D other)
     {
         Destroy(gameObject);
+        blockCount -= 1;
+        if (blockCount <= 0)
+        {
+            LevelManager.Instance.LoadLevelSelect();
+        }
     }
 
     void DropFromSky()
