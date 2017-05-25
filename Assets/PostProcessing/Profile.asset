@@ -100,8 +100,8 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 4
-        threshold: 1.05
+        intensity: 6
+        threshold: 1.1
         softKnee: 0.5
         radius: 5
         antiFlicker: 0
@@ -299,13 +299,13 @@ MonoBehaviour:
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
       intensity: 0.45
-      smoothness: 0.2
+      smoothness: 0.1
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
       rounded: 0
   dithering:
-    m_Enabled: 0
+    m_Enabled: 1
   monitors:
     currentMonitorID: 0
     refreshOnPlay: 0

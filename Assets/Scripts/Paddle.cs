@@ -16,7 +16,7 @@ public class Paddle : MonoBehaviour {
 
         // Scale based on velocity to provide a squishing effect.
         float squish = 1 + Mathf.Abs(mouse.x - transform.position.x);
-        transform.localScale = new Vector3(squish * 2f, 1.75f / squish, 1);
+        transform.localScale = new Vector3(squish * 1.5f, 1.25f / squish, 1);
 
         // Follow the mouse on the x axis.
         rigidbody2D.position = new Vector2(mouse.x, rigidbody2D.position.y);
