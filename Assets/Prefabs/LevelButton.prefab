@@ -147,10 +147,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 36f5ce0d926b74f7ba36ddad570cc767, type: 3}
-    m_FontSize: 72
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 0
     m_MaxSize: 72
     m_Alignment: 4
     m_AlignByGeometry: 0
