@@ -231,6 +231,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212392494336894066, guid: 421162f03b6074ea2942f8304985fe31,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 212392494336894066, guid: 421162f03b6074ea2942f8304985fe31,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 212392494336894066, guid: 421162f03b6074ea2942f8304985fe31,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 212392494336894066, guid: 421162f03b6074ea2942f8304985fe31,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 421162f03b6074ea2942f8304985fe31, type: 2}
   m_IsPrefabParent: 0
@@ -288,6 +308,7 @@ GameObject:
   - component: {fileID: 1632867436}
   - component: {fileID: 1632867435}
   - component: {fileID: 1632867434}
+  - component: {fileID: 1632867439}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -325,7 +346,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.18198529, g: 0.20843546, b: 0.25, a: 0}
+  m_BackGroundColor: {r: 0.2352941, g: 0.14705881, b: 0.23362929, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -365,6 +386,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632867439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1632867433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 0cb543ec05f5f4e989515a1cdb9e62b9, type: 2}
 --- !u!1001 &1929423055
 Prefab:
   m_ObjectHideFlags: 0
