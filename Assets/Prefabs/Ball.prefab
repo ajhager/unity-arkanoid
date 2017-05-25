@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536971281106364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.35, z: 0}
+  m_LocalPosition: {x: 0, y: -4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  bounceSound: {fileID: 8300000, guid: b75b83dcad1144c108726f7ebeaacf8f, type: 3}
+  bounceSound: {fileID: 8300000, guid: 7ee18dadfaa444dbbb70ae05392ab833, type: 3}
   popSound: {fileID: 8300000, guid: 41bf2253a26a14efa943adfb4c6768f3, type: 3}
 --- !u!212 &212392494336894066
 SpriteRenderer:
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d730a1133282840f8bbf5defb5db4b41, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.784}
+  m_Color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -56,7 +56,7 @@ public class Ball : MonoBehaviour {
         }
         else
         {
-            SoundManager.Instance.Play(bounceSound, Random.Range(0.95f, 1.5f));
+            SoundManager.Instance.Play(bounceSound, Random.Range(0.75f, 1.5f));
             Block.ShakeAll();
         }
     }
