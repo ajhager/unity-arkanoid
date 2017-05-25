@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60b2be362704449ab7d9482792bdfe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 8
+  bounceSound: {fileID: 8300000, guid: b75b83dcad1144c108726f7ebeaacf8f, type: 3}
+  popSound: {fileID: 8300000, guid: 41bf2253a26a14efa943adfb4c6768f3, type: 3}
 --- !u!212 &212392494336894066
 SpriteRenderer:
   m_ObjectHideFlags: 1

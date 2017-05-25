@@ -5,11 +5,16 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
     public float speed = 10;
 
+    public AudioClip bounceSound;
+    public AudioClip popSound;
+    
     private Rigidbody2D body;
     private Rigidbody2D paddleBody;
     private bool launched;
+    private float blockTime;
+    private float blockPitch;
 
-	void Awake()
+    void Awake()
 	{
         body = GetComponent<Rigidbody2D>();
         paddleBody = GameObject.Find("Paddle").GetComponent<Rigidbody2D>();
@@ -42,10 +47,35 @@ public class Ball : MonoBehaviour {
         }
 
         iTween.PunchScale(gameObject, Vector3.one, 0.5f);
-        Block.ShakeAll();
+
+        if (other.gameObject.tag == "Block")
+        {
+            PlayBlockSound();
+        }
+        else
+        {
+            SoundManager.Instance.Play(bounceSound, Random.Range(0.95f, 1.5f));
+            Block.ShakeAll();
+        }
     }
 
-	void FixedUpdate()
+    void PlayBlockSound()
+    {
+        if (Time.time - blockTime < 1f)
+        {
+            blockPitch += 0.15f;
+        }
+        else
+        {
+            blockPitch = 1f;
+        }
+
+        SoundManager.Instance.Play(popSound, blockPitch);
+
+        blockTime = Time.time;
+    }
+
+    void FixedUpdate()
 	{
 		if (!launched)
 		{
