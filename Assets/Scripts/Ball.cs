@@ -45,6 +45,7 @@ public class Ball : MonoBehaviour {
 			float x = (transform.position.x - other.transform.position.x) / other.collider.bounds.size.x;
             Vector2 direction = new Vector2(x, 1).normalized;
             body.velocity = direction * speed;
+            other.gameObject.GetComponent<Paddle>().Glow();
         }
 
         iTween.PunchScale(gameObject, Vector3.one, 0.5f);
@@ -81,7 +82,7 @@ public class Ball : MonoBehaviour {
 		if (!launched)
 		{
             body.velocity = Vector2.zero;
-            body.position = new Vector2(paddleBody.position.x, paddleBody.position.y + 0.35f);
+            body.position = new Vector2(paddleBody.position.x, paddleBody.position.y + 0.3f);
 			if (Input.GetButton("Fire1"))
 			{
                 Launch();
