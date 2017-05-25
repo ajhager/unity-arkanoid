@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public int life;
+
     private static int blockCount;
     private Vector3 startingPosition;
 
@@ -20,7 +22,12 @@ public class Block : MonoBehaviour
 
    void OnCollisionEnter2D(Collision2D other)
     {
-        Destroy(gameObject);
+        life -= 1;
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         blockCount -= 1;
         if (blockCount <= 0)
         {
