@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour {
 	{
         launched = false;
         GetComponent<TrailRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
 
 	public void Launch()
@@ -38,10 +39,11 @@ public class Ball : MonoBehaviour {
 
         launched = true;
         GetComponent<TrailRenderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (launched && other.gameObject.name == "Paddle")
+        if (other.gameObject.name == "Paddle")
         {
 			float x = (transform.position.x - other.transform.position.x) / other.collider.bounds.size.x;
             Vector2 direction = new Vector2(x, 1).normalized;
