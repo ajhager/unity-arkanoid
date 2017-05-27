@@ -34,7 +34,8 @@ public class Ball : MonoBehaviour {
 
 	public void Launch()
 	{
-		body.velocity = Vector2.up * speed;
+        body.velocity = Vector2.up * speed;
+
         launched = true;
         GetComponent<TrailRenderer>().enabled = true;
     }
@@ -88,5 +89,12 @@ public class Ball : MonoBehaviour {
                 Launch();
             }
 		}
+        else
+        {
+            if (Mathf.Abs(body.velocity.y) < Mathf.Epsilon)
+            {
+                body.velocity = Vector2.up * speed;
+            }
+        }
 	}
 }
