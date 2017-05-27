@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: 4272796881726800}
   - component: {fileID: 212937033577310050}
   - component: {fileID: 61913526230909660}
-  - component: {fileID: 114198203336842060}
   m_Layer: 0
   m_Name: IndestructibleBlock
-  m_TagString: Block
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,18 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.95, y: 0.245}
   m_EdgeRadius: 0
---- !u!114 &114198203336842060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1214245307917216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd231bb164904535b9396d86ceeb03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1000
 --- !u!212 &212937033577310050
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -112,7 +99,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4f1c79a7de4b24ad6b9621147aab7688, type: 3}
-  m_Color: {r: 0.83823526, g: 0.83823526, b: 0.83823526, a: 1}
+  m_Color: {r: 0.89705884, g: 0.89705884, b: 0.89705884, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

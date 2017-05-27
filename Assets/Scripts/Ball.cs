@@ -12,8 +12,8 @@ public class Ball : MonoBehaviour {
     private Rigidbody2D body;
     private Rigidbody2D paddleBody;
     private bool launched;
-    private float blockTime;
     private float blockPitch;
+    private float blockTime;
 
     void Awake()
 	{
