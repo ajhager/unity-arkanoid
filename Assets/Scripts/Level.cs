@@ -5,6 +5,10 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     private static int blockCount;
+    private static int lifeCount;
+
+	[RangeAttribute(1, 5)]
+    public int lives = 3;
 
     void Start()
     {
@@ -18,6 +22,22 @@ public class Level : MonoBehaviour
                 "easeType", "easeOutElastic"
             ));
         }
+
+        lifeCount = lives;
+        GameObject.FindObjectOfType<Paddle>().LightUp(lifeCount);
+    }
+
+	public static void BallDied()
+	{
+        lifeCount -= 1;
+        if (lifeCount <= 0)
+        {
+            LevelManager.Instance.LoadLevelSelect();
+        }
+		else
+		{
+            GameObject.FindObjectOfType<Paddle>().LightUp(lifeCount);
+		}
     }
 
 	public static void BlockDied()

@@ -97,6 +97,12 @@ public class Ball : MonoBehaviour {
             {
                 body.velocity = Vector2.up * speed;
             }
+
+            if (body.position.y <= -6)
+            {
+                Level.BallDied();
+                Reset();
+            }
         }
 	}
 }
