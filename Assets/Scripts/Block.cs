@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Block : MonoBehaviour
 {
     public int life;
 
-    private Vector3 startingPosition;
+    Vector3 startingPosition;
 
     void Awake()
     {
@@ -15,11 +13,14 @@ public class Block : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        life -= 1;
-        if (life <= 0)
+        if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
-            Level.BlockDied();
+            life -= 1;
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+                Level.BlockDied();
+            }
         }
     }
 
@@ -32,7 +33,7 @@ public class Block : MonoBehaviour
 
     public static void ShakeAll()
     {
-        foreach (Block block in GameObject.FindObjectsOfType<Block>())
+        foreach (Block block in FindObjectsOfType<Block>())
         {
             block.Shake();
         }

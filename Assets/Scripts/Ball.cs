@@ -1,40 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.PostProcessing;
+﻿using UnityEngine;
 
-public class Ball : MonoBehaviour {
+public class Ball : MonoBehaviour
+{
     public float speed = 10;
-
     public AudioClip bounceSound;
     public AudioClip popSound;
-    
-    private Rigidbody2D body;
-    private Rigidbody2D paddleBody;
-    private bool launched;
-    private float blockPitch;
-    private float blockTime;
+
+    Rigidbody2D body;
+    Rigidbody2D paddleBody;
+    bool launched;
+    float blockPitch;
+    float blockTime;
 
     void Awake()
-	{
+    {
         body = GetComponent<Rigidbody2D>();
         paddleBody = GameObject.Find("Paddle").GetComponent<Rigidbody2D>();
     }
 
-	void Start()
-	{
+    void Start()
+    {
         Reset();
     }
 
-	public void Reset()
-	{
+    public void Reset()
+    {
         launched = false;
         GetComponent<TrailRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
     }
 
-	public void Launch()
-	{
+    public void Launch()
+    {
         body.velocity = Vector2.up * speed;
 
         launched = true;
@@ -42,10 +39,11 @@ public class Ball : MonoBehaviour {
         GetComponent<Collider2D>().enabled = true;
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    void OnCollisionEnter2D(Collision2D other)
+    {
         if (other.gameObject.name == "Paddle")
         {
-			float x = (transform.position.x - other.transform.position.x) / other.collider.bounds.size.x;
+            float x = (transform.position.x - other.transform.position.x) / other.collider.bounds.size.x;
             Vector2 direction = new Vector2(x, 1).normalized;
             body.velocity = direction * speed;
             other.gameObject.GetComponent<Paddle>().Glow();
@@ -81,16 +79,16 @@ public class Ball : MonoBehaviour {
     }
 
     void FixedUpdate()
-	{
-		if (!launched)
-		{
+    {
+        if (!launched)
+        {
             body.velocity = Vector2.zero;
             body.position = new Vector2(paddleBody.position.x, paddleBody.position.y + 0.3f);
-			if (Input.GetButton("Fire1"))
-			{
+            if (Input.GetButton("Fire1"))
+            {
                 Launch();
             }
-		}
+        }
         else
         {
             if (Mathf.Abs(body.velocity.y) < Mathf.Epsilon)
@@ -104,5 +102,5 @@ public class Ball : MonoBehaviour {
                 Reset();
             }
         }
-	}
+    }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
@@ -14,8 +12,8 @@ public class Loader : MonoBehaviour
             Instantiate(levelManager);
         }
 
-		if (SoundManager.Instance == null)
-		{
+        if (SoundManager.Instance == null)
+        {
             Instantiate(soundManager);
         }
     }

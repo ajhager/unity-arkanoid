@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,20 +6,20 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource effects;
     public AudioSource music;
-     
+
     void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
- 
+
         Instance = this;
- 
+
         DontDestroyOnLoad(gameObject);
     }
- 
-	public void Play(AudioClip clip, float pitch = 1)
+
+    public void Play(AudioClip clip, float pitch = 1)
     {
         effects.pitch = pitch;
         effects.clip = clip;

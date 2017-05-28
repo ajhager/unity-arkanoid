@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Paddle : MonoBehaviour {
-    private Rigidbody2D body;
+public class Paddle : MonoBehaviour
+{
     public GameObject[] lights;
 
+    Rigidbody2D body;
+
     void Awake()
-	{
+    {
         body = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
-	{
+    {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // Scale based on velocity to provide a squishing effect.
